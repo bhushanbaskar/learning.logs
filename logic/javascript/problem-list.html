@@ -1,0 +1,840 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>120 Logic Problems — JavaScript Mastery (Printable)</title>
+<style>
+  /* Print-friendly style */
+  :root{
+    --accent:#0b5fff;
+    --muted:#666;
+    --card-bg:#fff;
+    --paper:#f7f7f9;
+    --max-width:980px;
+    --tag-bg:#eef5ff;
+  }
+  html,body{font-family:Inter, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial; background:var(--paper); color:#111; margin:0; padding:22px;}
+  .container{max-width:var(--max-width); margin:0 auto; background:linear-gradient(0deg,#fff, #fff); padding:20px; box-shadow:0 6px 24px rgba(20,20,40,0.06);}
+  header{display:flex; align-items:center; gap:16px; margin-bottom:10px;}
+  header h1{font-size:20px; margin:0; color:var(--accent);}
+  header p{margin:0; color:var(--muted); font-size:13px;}
+  .meta{display:flex; gap:12px; margin-bottom:18px; flex-wrap:wrap;}
+  .meta .pill{background:var(--tag-bg); padding:6px 10px; border-radius:10px; font-size:12px; color:#034;}
+  .toc{margin-bottom:14px;}
+  .section-title{background:#fafcff; padding:8px 12px; border-left:4px solid var(--accent); margin-top:18px; font-weight:600;}
+  ol.problems{list-style:none; padding:0; margin:0;}
+  li.problem{background:var(--card-bg); border:1px solid #eee; padding:12px; margin:10px 0; border-radius:8px; page-break-inside:avoid;}
+  .head{display:flex; justify-content:space-between; gap:12px; align-items:flex-start;}
+  .title{font-weight:600; font-size:14px;}
+  .meta-small{font-size:12px; color:var(--muted);}
+  .desc{margin-top:6px; color:#222; font-size:13px;}
+  .hint{margin-top:8px; font-size:12px; color:#334; background:#f3f7ff; padding:8px; border-radius:6px;}
+  .tags{margin-top:8px; display:flex; gap:6px; flex-wrap:wrap;}
+  .tag{font-size:11px; padding:4px 8px; background:#eef6ff; border-radius:999px; color:#034;}
+  footer{margin-top:22px; font-size:12px; color:var(--muted);}
+  @media print{
+    body{margin:0; padding:0;}
+    .container{box-shadow:none; margin:0; padding:12mm;}
+    header p, .meta{display:none;}
+  }
+  /* small helpers for pages */
+  .page-break{page-break-after:always;}
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <div>
+      <h1>120 Logic Problems — From Fundamentals to Advanced JavaScript</h1>
+      <p>Progressive, interview-focused, and real-world. Print this and grind. — Mentor: your future self.</p>
+    </div>
+  </header>
+
+  <div class="meta">
+    <div class="pill">Goal: Logic mastery → Expert JavaScript</div>
+    <div class="pill">How to use: Read problem → write logic in English → translate to JS → test</div>
+    <div class="pill">Save: Print → PDF → Track progress</div>
+  </div>
+
+  <div class="toc">
+    <strong>Contents</strong>
+    <ol>
+      <li>Basics & Expressions — 1–20</li>
+      <li>Arrays & Strings — 21–40</li>
+      <li>Data Structures — 41–55</li>
+      <li>Algorithms (sorting/search/greedy) — 56–70</li>
+      <li>Recursion & DP — 71–85</li>
+      <li>Functional & ES6 Patterns — 86–95</li>
+      <li>Asynchronous JS & Promises — 96–105</li>
+      <li>DOM, Browser APIs & Performance — 106–115</li>
+      <li>Real Projects / System Thinking — 116–120</li>
+    </ol>
+  </div>
+
+  <!-- Problems -->
+  <ol class="problems">
+
+  <!-- Basics 1-20 -->
+  <li class="problem"><div class="head"><div><div class="title">1. Swap two variables (no temp)</div><div class="meta-small">Difficulty: Very Easy · Topics: variables, operators</div></div><div class="meta-small">Output: values swapped</div></div>
+    <div class="desc">Swap the values of `a` and `b` without using a temporary variable. Implement in JS.</div>
+    <div class="hint">Hint: Use arithmetic or destructuring assignment: `[a, b] = [b, a]`.</div>
+    <div class="tags"><span class="tag">JS</span><span class="tag">ES6</span></div>
+  </li>
+
+  <li class="problem"><div class="head"><div><div class="title">2. Check even/odd without % operator</div><div class="meta-small">Difficulty: Very Easy · Topics: bitwise</div></div><div class="meta-small">Input: integer → Output: boolean</div></div>
+    <div class="desc">Determine if a number is even without using modulus `%`.</div>
+    <div class="hint">Hint: Use bitwise `& 1`.</div>
+    <div class="tags"><span class="tag">Bitwise</span></div>
+  </li>
+
+  <li class="problem"><div class="head"><div><div class="title">3. Reverse an integer (preserve sign)</div><div class="meta-small">Difficulty: Easy · Topics: math, strings</div></div><div class="meta-small">Edge cases: overflow, negatives</div></div>
+    <div class="desc">Reverse digits of an integer: `-123` → `-321`.</div>
+    <div class="hint">Hint: Convert to string or use math loops.</div>
+    <div class="tags"><span class="tag">Edge cases</span></div>
+  </li>
+
+  <li class="problem"><div class="head"><div><div class="title">4. FizzBuzz (classic)</div><div class="meta-small">Difficulty: Very Easy · Topics: conditionals, loops</div></div><div class="meta-small">Output: 1..100 with Fizz/Buzz</div></div>
+    <div class="desc">Print numbers 1–100; multiples of 3 -> "Fizz"; 5 -> "Buzz"; both -> "FizzBuzz".</div>
+    <div class="hint">Hint: Check divisible by 15 first or combine conditions.</div>
+    <div class="tags"><span class="tag">Interview</span></div>
+  </li>
+
+  <li class="problem"><div class="head"><div><div class="title">5. Palindrome check (string)</div><div class="meta-small">Difficulty: Easy · Topics: strings</div></div><div class="meta-small">Return true/false</div></div>
+    <div class="desc">Check if a string reads the same backwards (ignore case & spaces).</div>
+    <div class="hint">Hint: Normalize string then compare to reversed.</div>
+    <div class="tags"><span class="tag">Regex</span></div>
+  </li>
+
+  <li class="problem"><div class="head"><div><div class="title">6. Count vowels in a string</div><div class="meta-small">Difficulty: Very Easy · Topics: iteration</div></div><div class="meta-small">Return count</div></div>
+    <div class="desc">Count vowels `a,e,i,o,u` in a given string (case-insensitive).</div>
+    <div class="hint">Hint: Use a set of vowels or regex `match`.</div>
+    <div class="tags"><span class="tag">Strings</span></div>
+  </li>
+
+  <li class="problem"><div class="head"><div><div class="title">7. Max of three numbers</div><div class="meta-small">Difficulty: Very Easy · Topics: conditionals, Math</div></div><div class="meta-small">Return largest</div></div>
+    <div class="desc">Return the maximum of three numbers without using built-in `Math.max`.</div>
+    <div class="hint">Hint: Compare pairwise or use reduce.</div>
+    <div class="tags"><span class="tag">Logic</span></div>
+  </li>
+
+  <li class="problem"><div class="head"><div><div class="title">8. Check prime</div><div class="meta-small">Difficulty: Easy · Topics: loops, complexity</div></div><div class="meta-small">Return boolean</div></div>
+    <div class="desc">Check if a number is prime. Optimize to O(sqrt(n)).</div>
+    <div class="hint">Hint: Handle 2 separately and skip evens.</div>
+    <div class="tags"><span class="tag">Math</span></div>
+  </li>
+
+  <li class="problem"><div class="head"><div><div class="title">9. Factorial (iterative & recursive)</div><div class="meta-small">Difficulty: Easy · Topics: recursion vs loop</div></div><div class="meta-small">Return factorial</div></div>
+    <div class="desc">Implement factorial both iteratively and recursively; discuss pros/cons.</div>
+    <div class="hint">Hint: Watch recursion depth for large n.</div>
+    <div class="tags"><span class="tag">Recursion</span></div>
+  </li>
+
+  <li class="problem"><div class="head"><div><div class="title">10. Sum of digits</div><div class="meta-small">Difficulty: Very Easy · Topics: loops</div></div><div class="meta-small">Return sum</div></div>
+    <div class="desc">Given a non-negative integer, return sum of its digits.</div>
+    <div class="hint">Hint: Use `%` and `/` in a loop or convert to string.</div>
+    <div class="tags"><span class="tag">Math</span></div>
+  </li>
+
+  <li class="problem"><div class="head"><div><div class="title">11. Validate parentheses (simple)</div><div class="meta-small">Difficulty: Easy · Topics: stack</div></div><div class="meta-small">Return boolean</div></div>
+    <div class="desc">Given a string containing only `()` determine if valid (balanced).</div>
+    <div class="hint">Hint: Use a stack (array push/pop).</div>
+    <div class="tags"><span class="tag">Stack</span></div>
+  </li>
+
+  <li class="problem"><div class="head"><div><div class="title">12. Count occurrences of a char</div><div class="meta-small">Difficulty: Very Easy · Topics: strings</div></div><div class="meta-small">Return integer</div></div>
+    <div class="desc">Count how many times a specific character appears in a string.</div>
+    <div class="hint">Hint: Using `split` and `length-1` is concise.</div>
+    <div class="tags"><span class="tag">Strings</span></div>
+  </li>
+
+  <li class="problem"><div class="head"><div><div class="title">13. Largest of N numbers</div><div class="meta-small">Difficulty: Very Easy · Topics: arrays</div></div><div class="meta-small">Return value</div></div>
+    <div class="desc">Given an array, return the largest number without `Math.max`.</div>
+    <div class="hint">Hint: Use a simple loop tracking max.</div>
+    <div class="tags"><span class="tag">Arrays</span></div>
+  </li>
+
+  <li class="problem"><div class="head"><div><div class="title">14. Count trailing zeros in factorial</div><div class="meta-small">Difficulty: Medium · Topics: math</div></div><div class="meta-small">Return count</div></div>
+    <div class="desc">Count trailing zeros in `n!` (large n). Optimize beyond computing factorial.</div>
+    <div class="hint">Hint: Count factors of 5.</div>
+    <div class="tags"><span class="tag">Math</span></div>
+  </li>
+
+  <li class="problem"><div class="head"><div><div class="title">15. Swap case of letters</div><div class="meta-small">Difficulty: Very Easy · Topics: strings</div></div><div class="meta-small">Return transformed string</div></div>
+    <div class="desc">Given a string, switch uppercase to lowercase and vice versa.</div>
+    <div class="hint">Hint: Iterate and check `char === char.toUpperCase()`.</div>
+    <div class="tags"><span class="tag">Strings</span></div>
+  </li>
+
+  <li class="problem"><div class="head"><div><div class="title">16. Fibonacci sequence (iterative & memo)</div><div class="meta-small">Difficulty: Easy · Topics: DP basics</div></div><div class="meta-small">Return nth Fibonacci</div></div>
+    <div class="desc">Compute nth Fibonacci fast: compare naive recursion vs memoization vs iterative.</div>
+    <div class="hint">Hint: Use array or Map for memo.</div>
+    <div class="tags"><span class="tag">DP</span></div>
+  </li>
+
+  <li class="problem"><div class="head"><div><div class="title">17. Remove duplicates from array</div><div class="meta-small">Difficulty: Easy · Topics: sets</div></div><div class="meta-small">Return unique array</div></div>
+    <div class="desc">Remove duplicates maintaining original order.</div>
+    <div class="hint">Hint: Use `Set` + filter or `Map` to track seen values.</div>
+    <div class="tags"><span class="tag">Arrays</span></div>
+  </li>
+
+  <li class="problem"><div class="head"><div><div class="title">18. Check anagram</div><div class="meta-small">Difficulty: Easy · Topics: hash table</div></div><div class="meta-small">Return boolean</div></div>
+    <div class="desc">Given two strings, determine if they are anagrams (ignore spaces).</div>
+    <div class="hint">Hint: Sort strings or count char frequencies.</div>
+    <div class="tags"><span class="tag">Hash</span></div>
+  </li>
+
+  <li class="problem"><div class="head"><div><div class="title">19. Merge two sorted arrays (in place)</div><div class="meta-small">Difficulty: Medium · Topics: two-pointer</div></div><div class="meta-small">Return merged</div></div>
+    <div class="desc">Given two sorted arrays, merge into one sorted array using O(m+n) time.</div>
+    <div class="hint">Hint: Use two indices and build result backward if in-place in larger array.</div>
+    <div class="tags"><span class="tag">Two-pointer</span></div>
+  </li>
+
+  <li class="problem"><div class="head"><div><div class="title">20. Binary representation count bits</div><div class="meta-small">Difficulty: Easy · Topics: bitwise</div></div><div class="meta-small">Return number of 1s</div></div>
+    <div class="desc">Count number of `1` bits in binary representation of an integer.</div>
+    <div class="hint">Hint: Use `n & (n-1)` loop to clear lowest set bit.</div>
+    <div class="tags"><span class="tag">Bits</span></div>
+  </li>
+
+  <!-- Arrays & Strings 21-40 -->
+  <li class="section-title">Arrays & Strings — 21–40</li>
+
+  <li class="problem"><div class="head"><div><div class="title">21. Two-sum (find indices)</div><div class="meta-small">Difficulty: Easy · Topics: hash map</div></div><div class="meta-small">Return pair indices or -1</div></div>
+    <div class="desc">Given array and target, find two indices summing to target. Optimize to O(n).</div>
+    <div class="hint">Hint: Use a Map of value→index while iterating.</div>
+    <div class="tags"><span class="tag">HashMap</span></div>
+  </li>
+
+  <li class="problem"><div class="head"><div><div class="title">22. Move zeros to end (stable)</div><div class="meta-small">Difficulty: Easy · Topics: arrays, in-place</div></div><div class="meta-small">Maintain order of non-zeros</div></div>
+    <div class="desc">Move all zeros in array to the end while maintaining the order of non-zero elements.</div>
+    <div class="hint">Hint: Two-pointer technique (slow pointer tracks place to write non-zero).</div>
+    <div class="tags"><span class="tag">In-place</span></div>
+  </li>
+
+  <li class="problem"><div class="head"><div><div class="title">23. Rotate array by k</div><div class="meta-small">Difficulty: Medium · Topics: arrays</div></div><div class="meta-small">In-place</div></div>
+    <div class="desc">Rotate elements of array right by `k` steps in O(n) and O(1) extra space.</div>
+    <div class="hint">Hint: Reverse parts of array three times.</div>
+    <div class="tags"><span class="tag">Array tricks</span></div>
+  </li>
+
+  <li class="problem"><div class="head"><div><div class="title">24. Longest common prefix</div><div class="meta-small">Difficulty: Easy · Topics: strings</div></div><div class="meta-small">Return prefix</div></div>
+    <div class="desc">Given array of strings, find longest common prefix among them.</div>
+    <div class="hint">Hint: Compare characters column-wise or use divide and conquer.</div>
+    <div class="tags"><span class="tag">Strings</span></div>
+  </li>
+
+  <li class="problem"><div class="head"><div><div class="title">25. Longest substring without repeating chars</div><div class="meta-small">Difficulty: Medium · Topics: sliding window</div></div><div class="meta-small">Return length</div></div>
+    <div class="desc">Find length of longest substring without repeating characters in a string.</div>
+    <div class="hint">Hint: Use sliding window with last-seen indices map.</div>
+    <div class="tags"><span class="tag">SlidingWindow</span></div>
+  </li>
+
+  <li class="problem"><div class="head"><div><div class="title">26. Group anagrams</div><div class="meta-small">Difficulty: Medium · Topics: hashing</div></div><div class="meta-small">Return groups</div></div>
+    <div class="desc">Group an array of strings so that anagrams are together. Output groups array.</div>
+    <div class="hint">Hint: Use sorted string as key or char frequency signature.</div>
+    <div class="tags"><span class="tag">Hash</span></div>
+  </li>
+
+  <li class="problem"><div class="head"><div><div class="title">27. Product of array except self</div><div class="meta-small">Difficulty: Medium · Topics: prefix/suffix</div></div><div class="meta-small">No division, O(n)</div></div>
+    <div class="desc">Return array where each element is product of all other elements except itself.</div>
+    <div class="hint">Hint: Build prefix and suffix products or do two-pass accumulation.</div>
+    <div class="tags"><span class="tag">PrefixSuffix</span></div>
+  </li>
+
+  <li class="problem"><div class="head"><div><div class="title">28. Maximum subarray (Kadane)</div><div class="meta-small">Difficulty: Easy · Topics: DP</div></div><div class="meta-small">Return max sum</div></div>
+    <div class="desc">Find contiguous subarray with the largest sum.</div>
+    <div class="hint">Hint: Track current sum and max so far.</div>
+    <div class="tags"><span class="tag">Kadane</span></div>
+  </li>
+
+  <li class="problem"><div class="head"><div><div class="title">29. Shortest palindrome by adding chars</div><div class="meta-small">Difficulty: Hard · Topics: strings, KMP</div></div><div class="meta-small">Construct shortest palindrome</div></div>
+    <div class="desc">Given a string, add characters in front to make the shortest palindrome.</div>
+    <div class="hint">Hint: Use KMP-based prefix function on `s + '#' + reverse(s)`.</div>
+    <div class="tags"><span class="tag">Advanced</span></div>
+  </li>
+
+  <li class="problem"><div class="head"><div><div class="title">30. Valid IP address generation</div><div class="meta-small">Difficulty: Medium · Topics: backtracking</div></div><div class="meta-small">Return all valid IPs</div></div>
+    <div class="desc">Given a string of digits, return all possible valid IP addresses by inserting dots.</div>
+    <div class="hint">Hint: Backtrack with pruning (segments length 1–3 and <=255).</div>
+    <div class="tags"><span class="tag">Backtracking</span></div>
+  </li>
+
+  <li class="problem"><div class="head"><div><div class="title">31. Find missing number (1..n)</div><div class="meta-small">Difficulty: Easy · Topics: XOR / sum</div></div><div class="meta-small">Return missing</div></div>
+    <div class="desc">Given array of n-1 unique numbers from 1..n, find missing one in O(n) and O(1) space.</div>
+    <div class="hint">Hint: Use XOR of range with array or sum formula.</div>
+    <div class="tags"><span class="tag">Math</span></div>
+  </li>
+
+  <li class="problem"><div class="head"><div><div class="title">32. Merge intervals</div><div class="meta-small">Difficulty: Medium · Topics: sorting, intervals</div></div><div class="meta-small">Return merged list</div></div>
+    <div class="desc">Given list of intervals, merge all overlapping intervals.</div>
+    <div class="hint">Hint: Sort by start, then iterate merging overlaps.</div>
+    <div class="tags"><span class="tag">Intervals</span></div>
+  </li>
+
+  <li class="problem"><div class="head"><div><div class="title">33. Longest increasing subsequence (LIS)</div><div class="meta-small">Difficulty: Hard · Topics: DP, binary search</div></div><div class="meta-small">Return length</div></div>
+    <div class="desc">Find length of LIS in O(n log n).</div>
+    <div class="hint">Hint: Use patience sorting / tails array + binary search.</div>
+    <div class="tags"><span class="tag">DP</span><span class="tag">BinarySearch</span></div>
+  </li>
+
+  <li class="problem"><div class="head"><div><div class="title">34. Find kth largest element</div><div class="meta-small">Difficulty: Medium · Topics: heap / quickselect</div></div><div class="meta-small">Return element</div></div>
+    <div class="desc">Find k-th largest element in unsorted array — several methods (heap O(n log k), quickselect O(n)).</div>
+    <div class="hint">Hint: Implement quickselect for best average performance.</div>
+    <div class="tags"><span class="tag">Selection</span></div>
+  </li>
+
+  <li class="problem"><div class="head"><div><div class="title">35. Count islands in grid</div><div class="meta-small">Difficulty: Medium · Topics: DFS/BFS</div></div><div class="meta-small">Return count</div></div>
+    <div class="desc">Given 2D grid of `1`s (land) and `0`s (water), count islands (connected components).</div>
+    <div class="hint">Hint: Use DFS/BFS and mark visited cells.</div>
+    <div class="tags"><span class="tag">GraphGrid</span></div>
+  </li>
+
+  <li class="problem"><div class="head"><div><div class="title">36. Replace spaces with %20 (URLify)</div><div class="meta-small">Difficulty: Easy · Topics: strings</div></div><div class="meta-small">Return new string</div></div>
+    <div class="desc">Replace spaces in a string with `%20` similar to URL encoding (in-place variant optional).</div>
+    <div class="hint">Hint: Trim trailing spaces if doing in-place using char array.</div>
+    <div class="tags"><span class="tag">Strings</span></div>
+  </li>
+
+  <li class="problem"><div class="head"><div><div class="title">37. Zigzag conversion</div><div class="meta-small">Difficulty: Medium · Topics: simulation</div></div><div class="meta-small">Return converted string</div></div>
+    <div class="desc">Given string and numRows, write it in zigzag and read row-wise.</div>
+    <div class="hint">Hint: Simulate row index movement up/down.</div>
+    <div class="tags"><span class="tag">Simulation</span></div>
+  </li>
+
+  <li class="problem"><div class="head"><div><div class="title">38. Count distinct islands (shape matters)</div><div class="meta-small">Difficulty: Hard · Topics: hashing, graph</div></div><div class="meta-small">Return count</div></div>
+    <div class="desc">Count number of distinct island shapes in a grid (translation invariant; rotation optional).</div>
+    <div class="hint">Hint: Canonicalize shape using traversal path string.</div>
+    <div class="tags"><span class="tag">Graphs</span></div>
+  </li>
+
+  <li class="problem"><div class="head"><div><div class="title">39. Longest palindromic substring</div><div class="meta-small">Difficulty: Hard · Topics: Manacher / expand</div></div><div class="meta-small">Return substring</div></div>
+    <div class="desc">Find the longest palindromic substring; implement expand-around-center O(n^2) or Manacher O(n).</div>
+    <div class="hint">Hint: Start with expand-around-center for simplicity.</div>
+    <div class="tags"><span class="tag">Strings</span></div>
+  </li>
+
+  <li class="problem"><div class="head"><div><div class="title">40. Minimum window substring</div><div class="meta-small">Difficulty: Hard · Topics: sliding window</div></div><div class="meta-small">Return substring or ''</div></div>
+    <div class="desc">Given `s` and `t`, find minimum window in `s` containing all chars of `t`.</div>
+    <div class="hint">Hint: Use sliding window with counts and track formed requirement.</div>
+    <div class="tags"><span class="tag">Advanced</span></div>
+  </li>
+
+  <!-- Data Structures 41-55 -->
+  <li class="section-title">Data Structures — 41–55</li>
+
+  <li class="problem"><div class="head"><div><div class="title">41. Implement stack (with min())</div><div class="meta-small">Difficulty: Medium · Topics: stack</div></div><div class="meta-small">Methods: push,pop,top,min</div></div>
+    <div class="desc">Implement a stack that returns current minimum in O(1) time.</div>
+    <div class="hint">Hint: Use auxiliary stack to track mins or store diff tricks.</div>
+    <div class="tags"><span class="tag">Design</span></div>
+  </li>
+
+  <li class="problem"><div class="head"><div><div class="title">42. Implement queue with two stacks</div><div class="meta-small">Difficulty: Medium · Topics: stacks</div></div><div class="meta-small">Methods: enqueue,dequeue,peek</div></div>
+    <div class="desc">Queue using two stacks to get amortized O(1) operations.</div>
+    <div class="hint">Hint: Use one stack for input and one for output; move when needed.</div>
+    <div class="tags"><span class="tag">ADT</span></div>
+  </li>
+
+  <li class="problem"><div class="head"><div><div class="title">43. Implement singly linked list</div><div class="meta-small">Difficulty: Medium · Topics: pointers</div></div><div class="meta-small">Methods: insert,delete,reverse</div></div>
+    <div class="desc">Implement basic linked list with operations and function to reverse the list.</div>
+    <div class="hint">Hint: Practice pointer juggling; iterative reverse uses three pointers.</div>
+    <div class="tags"><span class="tag">LinkedList</span></div>
+  </li>
+
+  <li class="problem"><div class="head"><div><div class="title">44. Detect cycle in linked list</div><div class="meta-small">Difficulty: Medium · Topics: floyd cycle</div></div><div class="meta-small">Return boolean</div></div>
+    <div class="desc">Detect if a linked list has a cycle (Floyd’s tortoise and hare).</div>
+    <div class="hint">Hint: Use fast and slow pointers and optionally find cycle start.</div>
+    <div class="tags"><span class="tag">LinkedList</span></div>
+  </li>
+
+  <li class="problem"><div class="head"><div><div class="title">45. Design hash map (basic)</div><div class="meta-small">Difficulty: Hard · Topics: hashing</div></div><div class="meta-small">Methods: put,get,remove</div></div>
+    <div class="desc">Implement a simple hash map with separate chaining or open addressing.</div>
+    <div class="hint">Hint: Handle collisions and resizing policy.</div>
+    <div class="tags"><span class="tag">Design</span></div>
+  </li>
+
+  <li class="problem"><div class="head"><div><div class="title">46. Implement priority queue (min-heap)</div><div class="meta-small">Difficulty: Medium · Topics: heap</div></div><div class="meta-small">Methods: push,pop,peek</div></div>
+    <div class="desc">Implement heap operations using array representation.</div>
+    <div class="hint">Hint: Parent/child indices math: parent=(i-1)//2.</div>
+    <div class="tags"><span class="tag">Heap</span></div>
+  </li>
+
+  <li class="problem"><div class="head"><div><div class="title">47. LRU cache implementation</div><div class="meta-small">Difficulty: Hard · Topics: linked list + hash</div></div><div class="meta-small">Methods: get,put</div></div>
+    <div class="desc">Implement LRU cache with O(1) get/put using linked list + hash map.</div>
+    <div class="hint">Hint: Doubly linked list for O(1) removals and map for nodes.</div>
+    <div class="tags"><span class="tag">SystemDesign</span></div>
+  </li>
+
+  <li class="problem"><div class="head"><div><div class="title">48. Trie (prefix tree)</div><div class="meta-small">Difficulty: Hard · Topics: trie</div></div><div class="meta-small">Methods: insert,search,startsWith</div></div>
+    <div class="desc">Implement a trie for lowercase English words supporting insert/search/prefix check.</div>
+    <div class="hint">Hint: Node children as Map or array[26].</div>
+    <div class="tags"><span class="tag">Trie</span></div>
+  </li>
+
+  <li class="problem"><div class="head"><div><div class="title">49. Union-Find (Disjoint Set)</div><div class="meta-small">Difficulty: Medium · Topics: DSU</div></div><div class="meta-small">Support union/find</div></div>
+    <div class="desc">Implement union-find with path compression and union by rank.</div>
+    <div class="hint">Hint: Understand amortized complexity; useful for connectivity problems.</div>
+    <div class="tags"><span class="tag">Graph</span></div>
+  </li>
+
+  <li class="problem"><div class="head"><div><div class="title">50. Circular buffer / ring buffer</div><div class="meta-small">Difficulty: Medium · Topics: data structure</div></div><div class="meta-small">Implement enqueue/dequeue</div></div>
+    <div class="desc">Implement ring buffer supporting wrap-around and fixed capacity.</div>
+    <div class="hint">Hint: Track head, tail, and size modulo capacity.</div>
+    <div class="tags"><span class="tag">Systems</span></div>
+  </li>
+
+  <li class="problem"><div class="head"><div><div class="title">51. Sparse array mapping (efficient memory)</div><div class="meta-small">Difficulty: Medium · Topics: maps</div></div><div class="meta-small">Design use-case</div></div>
+    <div class="desc">Design data structure to store sparse numeric array (very large index range) and support get/set efficiently.</div>
+    <div class="hint">Hint: Use maps from index to value and default 0 behavior.</div>
+    <div class="tags"><span class="tag">Design</span></div>
+  </li>
+
+  <li class="problem"><div class="head"><div><div class="title">52. Implement deque</div><div class="meta-small">Difficulty: Medium · Topics: deque</div></div><div class="meta-small">Operations both ends</div></div>
+    <div class="desc">Design double-ended queue with O(1) push/pop at both ends.</div>
+    <div class="hint">Hint: Use doubly linked list or circular buffer.</div>
+    <div class="tags"><span class="tag">ADT</span></div>
+  </li>
+
+  <li class="problem"><div class="head"><div><div class="title">53. Sparse matrix representation</div><div class="meta-small">Difficulty: Medium · Topics: storage</div></div><div class="meta-small">Design operations</div></div>
+    <div class="desc">Design memory-efficient storage for sparse matrices and implement matrix-vector multiply.</div>
+    <div class="hint">Hint: Use coordinate list (COO) or compressed sparse row (CSR).</div>
+    <div class="tags"><span class="tag">Performance</span></div>
+  </li>
+
+  <li class="problem"><div class="head"><div><div class="title">54. Implement bloom filter (conceptual)</div><div class="meta-small">Difficulty: Hard · Topics: probabilistic DS</div></div><div class="meta-small">Support insert, mightContain</div></div>
+    <div class="desc">Design a bloom filter and discuss false positive rate, hash functions, and parameters.</div>
+    <div class="hint">Hint: Understand bit array + multiple hash functions tradeoffs.</div>
+    <div class="tags"><span class="tag">Systems</span></div>
+  </li>
+
+  <li class="problem"><div class="head"><div><div class="title">55. Count frequency using Map vs Object — performance</div><div class="meta-small">Difficulty: Easy · Topics: JS internals</div></div><div class="meta-small">Implement and compare</div></div>
+    <div class="desc">Implement frequency count of array items using both `Map` and plain object; discuss pros/cons and performance nuances in JS.</div>
+    <div class="hint">Hint: Consider non-string keys and prototype collisions.</div>
+    <div class="tags"><span class="tag">JS</span></div>
+  </li>
+
+  <!-- Algorithms 56-70 -->
+  <li class="section-title">Algorithms — 56–70</li>
+
+  <li class="problem"><div class="head"><div><div class="title">56. Implement quicksort (in-place)</div><div class="meta-small">Difficulty: Medium · Topics: sorting</div></div><div class="meta-small">Return sorted array</div></div>
+    <div class="desc">Implement quicksort in-place; analyze average and worst-case complexity.</div>
+    <div class="hint">Hint: Choose good pivot (median-of-three) to avoid worst-case.</div>
+    <div class="tags"><span class="tag">Sorting</span></div>
+  </li>
+
+  <li class="problem"><div class="head"><div><div class="title">57. Implement mergesort</div><div class="meta-small">Difficulty: Medium · Topics: sorting</div></div><div class="meta-small">Stable sort</div></div>
+    <div class="desc">Implement mergesort and discuss stability and extra memory.</div>
+    <div class="hint">Hint: Recursive divide-and-conquer merges arrays back together.</div>
+    <div class="tags"><span class="tag">Sorting</span></div>
+  </li>
+
+  <li class="problem"><div class="head"><div><div class="title">58. Binary search (first/last occurrence)</div><div class="meta-small">Difficulty: Easy · Topics: BS variants</div></div><div class="meta-small">Return index</div></div>
+    <div class="desc">Implement binary search to find first and last occurrence of target in sorted array with duplicates.</div>
+    <div class="hint">Hint: Adjust mid movement to tighten bounds correctly.</div>
+    <div class="tags"><span class="tag">BinarySearch</span></div>
+  </li>
+
+  <li class="problem"><div class="head"><div><div class="title">59. K-way merge (merge K sorted arrays)</div><div class="meta-small">Difficulty: Medium · Topics: heap</div></div><div class="meta-small">Return merged</div></div>
+    <div class="desc">Merge k sorted arrays efficiently using min-heap of size k.</div>
+    <div class="hint">Hint: Push current heads of arrays into heap and pop smallest progressively.</div>
+    <div class="tags"><span class="tag">Heap</span></div>
+  </li>
+
+  <li class="problem"><div class="head"><div><div class="title">60. Top-k frequent elements</div><div class="meta-small">Difficulty: Medium · Topics: heap, bucket sort</div></div><div class="meta-small">Return k items</div></div>
+    <div class="desc">Find k most frequent elements in an array. Use heap or bucket sort for O(n).</div>
+    <div class="hint">Hint: Bucket by frequency for linear time when range small.</div>
+    <div class="tags"><span class="tag">Freq</span></div>
+  </li>
+
+  <li class="problem"><div class="head"><div><div class="title">61. Graph BFS shortest path (unweighted)</div><div class="meta-small">Difficulty: Medium · Topics: BFS</div></div><div class="meta-small">Return path or distance</div></div>
+    <div class="desc">Given adjacency list, find shortest path between two nodes in unweighted graph.</div>
+    <div class="hint">Hint: Track parents to reconstruct path after BFS.</div>
+    <div class="tags"><span class="tag">Graph</span></div>
+  </li>
+
+  <li class="problem"><div class="head"><div><div class="title">62. Dijkstra's algorithm</div><div class="meta-small">Difficulty: Medium · Topics: shortest path</div></div><div class="meta-small">Weighted graph</div></div>
+    <div class="desc">Implement Dijkstra using a priority queue for non-negative weighted graphs.</div>
+    <div class="hint">Hint: Use adjacency lists and min-heap.</div>
+    <div class="tags"><span class="tag">Graphs</span></div>
+  </li>
+
+  <li class="problem"><div class="head"><div><div class="title">63. Topological sort (DAG)</div><div class="meta-small">Difficulty: Medium · Topics: graph</div></div><div class="meta-small">Return ordering</div></div>
+    <div class="desc">Perform topological ordering of DAG using Kahn's algorithm or DFS post-order.</div>
+    <div class="hint">Hint: Kahn's uses indegree queue.</div>
+    <div class="tags"><span class="tag">Graph</span></div>
+  </li>
+
+  <li class="problem"><div class="head"><div><div class="title">64. Minimum spanning tree (Kruskal/Prim)</div><div class="meta-small">Difficulty: Medium · Topics: graphs</div></div><div class="meta-small">Return total weight</div></div>
+    <div class="desc">Implement MST algorithms and compare when each is preferable.</div>
+    <div class="hint">Hint: Kruskal uses union-find; Prim uses heap from a start node.</div>
+    <div class="tags"><span class="tag">Graph</span></div>
+  </li>
+
+  <li class="problem"><div class="head"><div><div class="title">65. Backtracking: N-Queens</div><div class="meta-small">Difficulty: Hard · Topics: backtracking</div></div><div class="meta-small">Return all solutions</div></div>
+    <div class="desc">Place N queens on NxN board so none attack each other; return all valid boards.</div>
+    <div class="hint">Hint: Use columns and diagonals sets to prune quickly.</div>
+    <div class="tags"><span class="tag">Backtracking</span></div>
+  </li>
+
+  <li class="problem"><div class="head"><div><div class="title">66. Word ladder (BFS shortest transformation)</div><div class="meta-small">Difficulty: Hard · Topics: BFS, graph</div></div><div class="meta-small">Return steps</div></div>
+    <div class="desc">Given start, end, and dictionary, find shortest transformation sequence changing one char each step.</div>
+    <div class="hint">Hint: Precompute adjacency via wildcards or BFS from both ends (bidirectional).</div>
+    <div class="tags"><span class="tag">Graphs</span></div>
+  </li>
+
+  <li class="problem"><div class="head"><div><div class="title">67. Maximum flow (Edmonds-Karp)</div><div class="meta-small">Difficulty: Hard · Topics: flows</div></div><div class="meta-small">Return max flow</div></div>
+    <div class="desc">Implement Edmonds-Karp algorithm to compute max flow in a network with capacities.</div>
+    <div class="hint">Hint: Use BFS to find augmenting paths and update residual graph.</div>
+    <div class="tags"><span class="tag">Advanced</span></div>
+  </li>
+
+  <li class="problem"><div class="head"><div><div class="title">68. Boyer–Moore majority vote</div><div class="meta-small">Difficulty: Medium · Topics: linear trick</div></div><div class="meta-small">Return majority value</div></div>
+    <div class="desc">Find the majority element (appears > n/2) in linear time and O(1) space.</div>
+    <div class="hint">Hint: Use candidate + counter method.</div>
+    <div class="tags"><span class="tag">Trick</span></div>
+  </li>
+
+  <li class="problem"><div class="head"><div><div class="title">69. Reservoir sampling</div><div class="meta-small">Difficulty: Hard · Topics: streaming algorithms</div></div><div class="meta-small">Random sample from stream</div></div>
+    <div class="desc">From an unknown-length stream, pick k items uniformly at random with O(k) space.</div>
+    <div class="hint">Hint: Understand probabilities and replace with decreasing chance as stream grows.</div>
+    <div class="tags"><span class="tag">Streaming</span></div>
+  </li>
+
+  <li class="problem"><div class="head"><div><div class="title">70. KMP substring search</div><div class="meta-small">Difficulty: Medium · Topics: strings, pattern search</div></div><div class="meta-small">Find pattern occurrences</div></div>
+    <div class="desc">Implement Knuth–Morris–Pratt algorithm to search pattern in text in O(n+m).</div>
+    <div class="hint">Hint: Build prefix (lps) table first.</div>
+    <div class="tags"><span class="tag">Advanced</span></div>
+  </li>
+
+  <!-- Recursion & DP 71-85 -->
+  <li class="section-title">Recursion & Dynamic Programming — 71–85</li>
+
+  <li class="problem"><div class="head"><div><div class="title">71. Count ways to climb stairs</div><div class="meta-small">Difficulty: Easy · Topics: DP</div></div><div class="meta-small">Return count</div></div>
+    <div class="desc">n steps, climb 1 or 2 steps. Count ways. Optimize from recursion to DP to O(1) space.</div>
+    <div class="hint">Hint: Fibonacci relation.</div>
+    <div class="tags"><span class="tag">DP</span></div>
+  </li>
+
+  <li class="problem"><div class="head"><div><div class="title">72. Coin change (min coins)</div><div class="meta-small">Difficulty: Medium · Topics: DP</div></div><div class="meta-small">Return min coins or -1</div></div>
+    <div class="desc">Given coin denominations, find minimum coins to make amount or state impossible.</div>
+    <div class="hint">Hint: 1D DP table from 0..amount.</div>
+    <div class="tags"><span class="tag">DP</span></div>
+  </li>
+
+  <li class="problem"><div class="head"><div><div class="title">73. Edit distance (Levenshtein)</div><div class="meta-small">Difficulty: Hard · Topics: DP</div></div><div class="meta-small">Return min edits</div></div>
+    <div class="desc">Compute minimum operations to convert string A to B (insert/delete/replace).</div>
+    <div class="hint">Hint: Use 2D DP table or optimize to 1D rolling arrays.</div>
+    <div class="tags"><span class="tag">DP</span></div>
+  </li>
+
+  <li class="problem"><div class="head"><div><div class="title">74. Partition equal subset sum</div><div class="meta-small">Difficulty: Medium · Topics: subset sum</div></div><div class="meta-small">Return boolean</div></div>
+    <div class="desc">Decide if array can be partitioned into two subsets with equal sum.</div>
+    <div class="hint">Hint: Reduce to subset-sum up to target sum; use bitset/DP.</div>
+    <div class="tags"><span class="tag">DP</span></div>
+  </li>
+
+  <li class="problem"><div class="head"><div><div class="title">75. Word break (dictionary)</div><div class="meta-small">Difficulty: Medium · Topics: DP</div></div><div class="meta-small">Return boolean or decomposition</div></div>
+    <div class="desc">Check if string can be segmented into sequence of dictionary words.</div>
+    <div class="hint">Hint: DP boolean array marking reachable indices.</div>
+    <div class="tags"><span class="tag">DP</span></div>
+  </li>
+
+  <li class="problem"><div class="head"><div><div class="title">76. House robber (linear DP)</div><div class="meta-small">Difficulty: Medium · Topics: DP</div></div><div class="meta-small">Return max loot</div></div>
+    <div class="desc">Rob houses in a line, no adjacent robbed houses. Maximize sum.</div>
+    <div class="hint">Hint: dp[i] = max(dp[i-1], dp[i-2]+val).</div>
+    <div class="tags"><span class="tag">DP</span></div>
+  </li>
+
+  <li class="problem"><div class="head"><div><div class="title">77. Decode ways (numbers -> letters)</div><div class="meta-small">Difficulty: Medium · Topics: DP</div></div><div class="meta-small">Return count</div></div>
+    <div class="desc">Given digit string, count possible decodings mapping 1->A..26->Z.</div>
+    <div class="hint">Hint: DP with checks for valid single and double digit combos.</div>
+    <div class="tags"><span class="tag">DP</span></div>
+  </li>
+
+  <li class="problem"><div class="head"><div><div class="title">78. Palindromic partitioning (min cuts)</div><div class="meta-small">Difficulty: Hard · Topics: DP</div></div><div class="meta-small">Return min cuts</div></div>
+    <div class="desc">Partition string into palindromic substrings using minimum cuts.</div>
+    <div class="hint">Hint: Precompute palindrome table, then dp for min cuts.</div>
+    <div class="tags"><span class="tag">DP</span></div>
+  </li>
+
+  <li class="problem"><div class="head"><div><div class="title">79. DP on trees: tree diameter</div><div class="meta-small">Difficulty: Medium · Topics: trees</div></div><div class="meta-small">Return longest path length</div></div>
+    <div class="desc">Find diameter (longest path) of a tree using two DFS/BFS runs or DP on tree.</div>
+    <div class="hint">Hint: Run BFS from arbitrary node to find farthest, then again.</div>
+    <div class="tags"><span class="tag">Trees</span></div>
+  </li>
+
+  <li class="problem"><div class="head"><div><div class="title">80. Bitmask DP: traveling salesman (small n)</div><div class="meta-small">Difficulty: Hard · Topics: DP, bitmask</div></div><div class="meta-small">Return min tour cost</div></div>
+    <div class="desc">Solve TSP for n ≤ 16 using DP over subsets and bitmasks.</div>
+    <div class="hint">Hint: dp[mask][i] = min cost to visit mask ending at i.</div>
+    <div class="tags"><span class="tag">Advanced</span></div>
+  </li>
+
+  <li class="problem"><div class="head"><div><div class="title">81. Burst balloons (interval DP)</div><div class="meta-small">Difficulty: Hard · Topics: interval DP</div></div><div class="meta-small">Return max coins</div></div>
+    <div class="desc">Max coins by bursting balloons — interval DP typical problem.</div>
+    <div class="hint">Hint: Consider last balloon to burst in interval and combine subproblems.</div>
+    <div class="tags"><span class="tag">DP</span></div>
+  </li>
+
+  <li class="problem"><div class="head"><div><div class="title">82. Regular expression matching (with . and *)</div><div class="meta-small">Difficulty: Hard · Topics: DP</div></div><div class="meta-small">Return boolean</div></div>
+    <div class="desc">Implement regex matching supporting `.` and `*` using DP (Leetcode-style).</div>
+    <div class="hint">Hint: 2D DP table where dp[i][j] depends on pattern[j-1] and star handling.</div>
+    <div class="tags"><span class="tag">DP</span></div>
+  </li>
+
+  <li class="problem"><div class="head"><div><div class="title">83. Maximum sum submatrix (2D Kadane)</div><div class="meta-small">Difficulty: Hard · Topics: 2D DP</div></div><div class="meta-small">Return max sum</div></div>
+    <div class="desc">Find submatrix with maximum sum in 2D array; reduce to 1D Kadane across row pairs.</div>
+    <div class="hint">Hint: Fix top and bottom rows, compress columns to 1D array, run Kadane.</div>
+    <div class="tags"><span class="tag">2D</span></div>
+  </li>
+
+  <li class="problem"><div class="head"><div><div class="title">84. Count number of BSTs (Catalan)</div><div class="meta-small">Difficulty: Medium · Topics: combinatorics, DP</div></div><div class="meta-small">Return count</div></div>
+    <div class="desc">Compute number of unique BSTs given n nodes (Catalan numbers) using DP or formula.</div>
+    <div class="hint">Hint: dp[n] = sum(dp[i]*dp[n-1-i]).</div>
+    <div class="tags"><span class="tag">Math</span></div>
+  </li>
+
+  <li class="problem"><div class="head"><div><div class="title">85. Matrix chain multiplication (optimal order)</div><div class="meta-small">Difficulty: Hard · Topics: interval DP</div></div><div class="meta-small">Return min multiplications</div></div>
+    <div class="desc">Find best parenthesization order to multiply chain of matrices with minimal scalar multiplications.</div>
+    <div class="hint">Hint: Interval DP over chain lengths.</div>
+    <div class="tags"><span class="tag">DP</span></div>
+  </li>
+
+  <!-- Functional & ES6 86-95 -->
+  <li class="section-title">Functional & ES6 Patterns — 86–95</li>
+
+  <li class="problem"><div class="head"><div><div class="title">86. Implement map/filter/reduce from scratch</div><div class="meta-small">Difficulty: Easy · Topics: higher-order functions</div></div><div class="meta-small">Prototype methods</div></div>
+    <div class="desc">Implement `Array.prototype.myMap`, `myFilter`, and `myReduce` showing understanding of callbacks and `thisArg`.</div>
+    <div class="hint">Hint: Use `for` loop and handle sparse arrays correctly.</div>
+    <div class="tags"><span class="tag">JS</span></div>
+  </li>
+
+  <li class="problem"><div class="head"><div><div class="title">87. Debounce and throttle</div><div class="meta-small">Difficulty: Medium · Topics: closures, timing</div></div><div class="meta-small">Implement both</div></div>
+    <div class="desc">Implement `debounce(fn, wait)` and `throttle(fn, wait)` functions in JS and explain differences.</div>
+    <div class="hint">Hint: Use `setTimeout` for debounce and timestamp checks for throttle.</div>
+    <div class="tags"><span class="tag">Browser</span></div>
+  </li>
+
+  <li class="problem"><div class="head"><div><div class="title">88. Implement curry and compose</div><div class="meta-small">Difficulty: Medium · Topics: FP, closures</div></div><div class="meta-small">Support variadic</div></div>
+    <div class="desc">Write `curry(fn)` and `compose(...fns)` with flexible arity.</div>
+    <div class="hint">Hint: Keep collecting args until expected length for curry; compose reduces from right to left.</div>
+    <div class="tags"><span class="tag">Functional</span></div>
+  </li>
+
+  <li class="problem"><div class="head"><div><div class="title">89. Deep clone (handle cycles)</div><div class="meta-small">Difficulty: Hard · Topics: objects</div></div><div class="meta-small">Return cloned object</div></div>
+    <div class="desc">Implement deepClone supporting nested objects, arrays, Dates, RegExp, and circular references.</div>
+    <div class="hint">Hint: Use WeakMap to map originals to clones for cycles.</div>
+    <div class="tags"><span class="tag">JS internals</span></div>
+  </li>
+
+  <li class="problem"><div class="head"><div><div class="title">90. Implement Promise.allSettled polyfill</div><div class="meta-small">Difficulty: Medium · Topics: Promises</div></div><div class="meta-small">Return promise</div></div>
+    <div class="desc">Polyfill `Promise.allSettled(promises)` to return array of result objects when all settle.</div>
+    <div class="hint">Hint: Wrap each promise to always resolve with status/value/reason.</div>
+    <div class="tags"><span class="tag">Async</span></div>
+  </li>
+
+  <li class="problem"><div class="head"><div><div class="title">91. Implement a simple event emitter</div><div class="meta-small">Difficulty: Medium · Topics: patterns</div></div><div class="meta-small">Methods: on,off,emit</div></div>
+    <div class="desc">Create `EventEmitter` class with `on`, `once`, `off`, and `emit` methods.</div>
+    <div class="hint">Hint: Map event → array of listeners; `once` wraps and removes after first call.</div>
+    <div class="tags"><span class="tag">Patterns</span></div>
+  </li>
+
+  <li class="problem"><div class="head"><div><div class="title">92. Implement safe JSON parse (recovering)</div><div class="meta-small">Difficulty: Medium · Topics: error handling</div></div><div class="meta-small">Return fallback/object</div></div>
+    <div class="desc">Implement a safe JSON parser that attempts to recover common mistakes (trailing commas, single quotes) heuristically or returns a structured error.</div>
+    <div class="hint">Hint: Try simple string fixes then `JSON.parse` in try/catch.</div>
+    <div class="tags"><span class="tag">Robustness</span></div>
+  </li>
+
+  <li class="problem"><div class="head"><div><div class="title">93. Memoize function with LRU cap</div><div class="meta-small">Difficulty: Medium · Topics: caching</div></div><div class="meta-small">Support hashable args</div></div>
+    <div class="desc">Create `memoize(fn, {maxSize})` that caches results and evicts least-recently-used entries when full.</div>
+    <div class="hint">Hint: Combine Map (ordered) with delete+set trick to keep recency.</div>
+    <div class="tags"><span class="tag">Perf</span></div>
+  </li>
+
+  <li class="problem"><div class="head"><div><div class="title">94. Implement flatten with depth</div><div class="meta-small">Difficulty: Easy · Topics: recursion</div></div><div class="meta-small">Return flattened array</div></div>
+    <div class="desc">Flatten nested arrays to given depth (like `Array.prototype.flat(depth)`).</div>
+    <div class="hint">Hint: Use recursion or iterative stack.</div>
+    <div class="tags"><span class="tag">Array</span></div>
+  </li>
+
+  <li class="problem"><div class="head"><div><div class="title">95. Observable vs Promise discussion + implement tiny observable</div><div class="meta-small">Difficulty: Medium · Topics: async patterns</div></div><div class="meta-small">Design and implement</div></div>
+    <div class="desc">Describe differences and implement a minimal Observable with subscribe/unsubscribe behavior.</div>
+    <div class="hint">Hint: Observable emits many values over time; Promise resolves once.</div>
+    <div class="tags"><span class="tag">Reactive</span></div>
+  </li>
+
+  <!-- Async JS 96-105 -->
+  <li class="section-title">Asynchronous JavaScript — 96–105</li>
+
+  <li class="problem"><div class="head"><div><div class="title">96. Implement promise pool (concurrency limit)</div><div class="meta-small">Difficulty: Medium · Topics: concurrency</div></div><div class="meta-small">Return aggregated results</div></div>
+    <div class="desc">Given array of async functions and limit `k`, run up to k concurrently and resolve when all finish.</div>
+    <div class="hint">Hint: Use queue of pending tasks and start next after a promise settles.</div>
+    <div class="tags"><span class="tag">Concurrency</span></div>
+  </li>
+
+  <li class="problem"><div class="head"><div><div class="title">97. Recreate setTimeout using requestAnimationFrame</div><div class="meta-small">Difficulty: Medium · Topics: browser timing</div></div><div class="meta-small">Support clear()</div></div>
+    <div class="desc">Implement `rafTimeout(fn, delay)` using `requestAnimationFrame` and timestamps; implement cancel as well.</div>
+    <div class="hint">Hint: Keep checking elapsed time inside RAF loop.</div>
+    <div class="tags"><span class="tag">Browser</span></div>
+  </li>
+
+  <li class="problem"><div class="head"><div><div class="title">98. Async iterator: stream reader</div><div class="meta-small">Difficulty: Medium · Topics: async iterators</div></div><div class="meta-small">Consume readable stream</div></div>
+    <div class="desc">Read from an async source via async iterator `for await` and process chunks; implement custom async iterable that yields values over time.</div>
+    <div class="hint">Hint: Use `Symbol.asyncIterator` and `next()` Promise control.</div>
+    <div class="tags"><span class="tag">Async</span></div>
+  </li>
+
+  <li class="problem"><div class="head"><div><div class="title">99. Convert callback API to Promise (promisify)</div><div class="meta-small">Difficulty: Easy · Topics: callbacks/promises</div></div><div class="meta-small">Return promisified function</div></div>
+    <div class="desc">Write a `promisify` utility that converts Node-style callbacks `(err, result)` into Promise-returning functions.</div>
+    <div class="hint">Hint: Return new Promise and call original with a callback resolving/rejecting.</div>
+    <div class="tags"><span class="tag">Interop</span></div>
+  </li>
+
+  <li class="problem"><div class="head"><div><div class="title">100. Race with timeout (abort Promise after t)</div><div class="meta-small">Difficulty: Medium · Topics: promises, AbortController</div></div><div class="meta-small">Return reject on timeout</div></div>
+    <div class="desc">Implement utility that rejects if promise doesn't resolve within time `t`, optionally using `AbortController` for fetch.</div>
+    <div class="hint">Hint: `Promise.race([p, timeoutPromise])` pattern.</div>
+    <div class="tags"><span class="tag">Network</span></div>
+  </li>
+
+  <li class="problem"><div class="head"><div><div class="title">101. Retry with exponential backoff</div><div class="meta-small">Difficulty: Medium · Topics: reliability</div></div><div class="meta-small">Configurable attempts</div></div>
+    <div class="desc">Implement `retry(fn, {retries, baseDelay})` to retry async operations with exponential backoff and jitter.</div>
+    <div class="hint">Hint: Use random jitter to avoid thundering herd; multiply delay each retry.</div>
+    <div class="tags"><span class="tag">Resilience</span></div>
+  </li>
+
+  <li class="problem"><div class="head"><div><div class="title">102. Implement cancellable promise</div><div class="meta-small">Difficulty: Hard · Topics: cancellation</div></div><div class="meta-small">Design API</div></div>
+    <div class="desc">Design a cancellable promise pattern (so consumers can cancel long-running work) and tie into AbortController where applicable.</div>
+    <div class="hint">Hint: Return `{promise, cancel}` or use AbortController signal within the executor.</div>
+    <div class="tags"><span class="tag">Advanced</span></div>
+  </li>
+
+  <li class="problem"><div class="head"><div><div class="title">103. Ordered async operations (preserve sequence)</div><div class="meta-small">Difficulty: Medium · Topics: async control</div></div><div class="meta-small">Given unordered, output ordered</div></div>
+    <div class="desc">Given array of async tasks that resolve at different times, produce results in input order regardless of completion order.</div>
+    <div class="hint">Hint: Map each task to its index and store results; `Promise.all` preserves order if given array.</div>
+    <div class="tags"><span class="tag">ControlFlow</span></div>
+  </li>
+
+  <li class="problem"><div class="head"><div><div class="title">104. Async debounce (return last result)</div><div class="meta-small">Difficulty: Medium · Topics: async</div></div><div class="meta-small">Debounce for async fn</div></div>
+    <div class="desc">Debounce an async function so only last call runs; ensure callers get the correct promise/result.</div>
+    <div class="hint">Hint: Keep the latest call's promise and cancel/outdate earlier ones.</div>
+    <div class="tags"><span class="tag">AsyncPatterns</span></div>
+  </li>
+
+  <li class="problem"><div class="head"><div><div class="title">105. Build a tiny task scheduler (priority + delay)</div><div class="meta-small">Difficulty: Hard · Topics: concurrency</div></div><div class="meta-small">Support schedule(fn, delay, priority)</div></div>
+    <div class="desc">Design scheduler that runs tasks after delay and orders by priority among ready tasks with limited concurrency.</div>
+    <div class="hint">Hint: Keep min-heap by deadline and separate ready-queue prioritized by priority.</div>
+    <div class="tags"><span class="tag">Systems</span></div>
+  </li>
+
+  <!-- DOM & Browser 106-115 -->
+  <li class="section-title">DOM, Browser APIs & Performance — 106–115</li>
+
+  <li class="problem"><div class="head"><div><div class="title">106. Implement delegate event handler</div><div class="meta-small">Difficulty: Easy · Topics: DOM</div></div><div class="meta-small">Performance: attach once</div></div>
+    <div class="desc">Implement event delegation to handle events for dynamic children using a single parent listener.</div>
+    <div class="hint">Hint: Use `event.target.closest(selector)` to check matches.</div>
+    <div class="tags"><span class="tag">DOM</span></div>
+  </li>
+
+  <li class="problem"><div class="head"><div><div class="title">107. Virtualize a long list (concept + code)</div><div class="meta-small">Difficulty: Hard · Topics: performance</div></div><div class="meta-small">Render only visible rows</div></div>
+    <div class="desc">Implement simple windowed list rendering that reuses DOM nodes to display very long lists efficiently.</div>
+    <div class="hint">Hint: Calculate visible indices by scrollTop / rowHeight and translate container for offset.</div>
+    <div class="tags"><span class="tag">Perf</span></div>
+  </li>
+
+  <li class="problem"><div class="head"><div><div class="title">108. Debounced search with cancel (typeahead)</div><div class="meta-small">Difficulty: Medium · Topics: UX, fetch</div></div><div class="meta-small">Cancel previous fetches</div></div>
+    <div class="desc">Create typeahead input that debounces user input and cancels previous network requests using AbortController.</div>
+    <div class="hint">Hint: Tie abort signal to each fetch; store last controller and abort when new query starts.</div>
+    <div class="tags"><span class="tag">UX</span></div>
+  </li>
+
+  <li class="problem"><div class="head"><div><div class="title">109. Image lazy loading (intersection observer)</div><div class="meta-small">Difficulty: Easy · Topics: browser API</div></div><div class="meta-small">Implement with placeholder</div></div>
+    <div class="desc">Lazy-load images when they enter viewport using `IntersectionObserver` and show low-res placeholder until loaded.</div>
+    <div class="hint">Hint: Use `loading="lazy"` where supported and IntersectionObserver fallback.</div>
+    <div class="tags"><span class="tag">BrowserAPI</span></div>
+  </li>
+
+  <li class="problem"><div class="head"><div><div class="title">110. Measure and optimize paint/layout thrashing</div><div class="meta-small">Difficulty: Hard · Topics: performance</div></div><div class="meta-small">Find causes and fix</div></div>
+    <div class="desc">Given code causing repeated layout reads/writes, identify reflows and convert to batch DOM writes to avoid thrashing.</div>
+    <div class="hint">Hint: Read all layouts first, then write updates (read–modify–write separation).</div>
+    <div class="tags"><span class="tag">Performance</span></div>
+  </li>
+
+  <li class="problem"><div class="head"><div><div class="title">111. Accessible custom dropdown</div><div class="meta-small">Difficulty: Medium · Topics: accessibility</div></div><div class="meta-small">Keyboard & screen reader support</div></div>
+    <div class="desc">Build a custom dropdown that supports keyboard navigation, ARIA roles, and focus management.</div>
+    <div class="hint">Hint: Use `role="listbox"`, `aria-expanded`, and manage `tabindex` properly.</div>
+    <div class="tags"><span class="tag">A11y</span></div>
+  </li>
+
+  <li class="problem"><div class="head"><div><div class="title">112. Optimize bundle size (tree-shaking demo)</div><div class="meta-small">Difficulty: Medium · Topics: build tools</div></div><div class="meta-small">Reduce shipped code</div></div>
+    <div class="desc">Given a small JS project with unused exports, restructure for better tree-shaking and analyze bundle impact.</div>
+    <div class="hint">Hint: Use ES modules, avoid dynamic require/import patterns that break tree-shaking.</div>
+    <div class="tags"><span class="tag">Build</span></div>
+  </li>
+
+  <li class="problem"><div class="head"><div><div class="title">113. Service Worker basic caching strategy</div><div class="meta-small">Difficulty: Medium · Topics: PWA</div></div><div class="meta-small">Implement offline cache</div></div>
+    <div class="desc">Implement service worker with cache-first strategy for static assets and network-first for API responses with fallback.</div>
+    <div class="hint">Hint: Use `caches.open` and `fetch` event listener; stale-while-revalidate optional.</div>
+    <div class="tags"><span class="tag">PWA</span></div>
+  </li>
+
+  <li class="problem"><div class="head"><div><div class="title">114. Memory leak hunting in web app</div><div class="meta-small">Difficulty: Hard · Topics: profiling</div></div><div class="meta-small">Find leak patterns</div></div>
+    <div class="desc">Given example app with increasing memory usage, use DevTools allocation profiler to find detached DOM nodes or retained closures.</div>
+    <div class="hint">Hint: Check heap snapshots and retainers to find leaking references.</div>
+    <div class="tags"><span class="tag">Debug</span></div>
+  </li>
+
+  <li class="problem"><div class="head"><div><div class="title">115. Cross-tab communication (BroadcastChannel)</div><div class="meta-small">Difficulty: Medium · Topics: browser API</div></div><div class="meta-small">Sync state between tabs</div></div>
+    <div class="desc">Implement simple state sync across multiple browser tabs/windows using `BroadcastChannel` or `localStorage` events with conflict resolution.</div>
+    <div class="hint">Hint: Add versioning or last-writer-wins strategy to avoid oscillation.</div>
+    <div class="tags"><span class="tag">BrowserAPI</span></div>
+  </li>
+
+  <!-- Real Projects 116-120 -->
+  <li class="section-title">Real Projects & System Thinking — 116–120</li>
+
+  <li class="problem"><div class="head"><div><div class="title">116. Build a tiny static site generator (SSG)</div><div class="meta-small">Difficulty: Hard · Topics: build tools, file I/O</div></div><div class="meta-small">CLI input → output dir</div></div>
+    <div class="desc">Create SSG that converts Markdown to HTML pages, supports templates, and produces a static directory ready to deploy on Vercel/Netlify.</div>
+    <div class="hint">Hint: Use front-matter parsing, markdown-it, and simple templating. Focus on incremental builds for speed.</div>
+    <div class="tags"><span class="tag">Portfolio</span><span class="tag">Vercel</span></div>
+  </li>
+
+  <li class="problem"><div class="head"><div><div class="title">117. Build a deployable serverless function (small API)</div><div class="meta-small">Difficulty: Hard · Topics: serverless</div></div><div class="meta-small">Deploy on Netlify / Vercel</div></div>
+    <div class="desc">Create an API endpoint that validates input, caches results, and handles cold starts. Deploy and measure latency.</div>
+    <div class="hint">Hint: Keep functions small, cache warm results, return compact JSON. Document your design decisions.</div>
+    <div class="tags"><span class="tag">Serverless</span></div>
+  </li>
+
+  <li class="problem"><div class="head"><div><div class="title">118. Build a tiny realtime collaborative counter</div><div class="meta-small">Difficulty: Hard · Topics: WebSocket, CRDT</div></div><div class="meta-small">Multi-tab sync</div></div>
+    <div class="desc">Implement a simple collaborative counter that syncs between clients using WebSockets or CRDTs (conflict-free replication). Handle out-of-order messages.</div>
+    <div class="hint">Hint: Use vector clocks or increment-only CRDT for counters to simplify conflict resolution.</div>
+    <div class="tags"><span class="tag">Realtime</span></div>
+  </li>
+
+  <li class="problem"><div class="head"><div><div class="title">119. End-to-end test suite for a small app</div><div class="meta-small">Difficulty: Medium · Topics: testing</div></div><div class="meta-small">Include unit + e2e</div></div>
+    <div class="desc">Build unit tests and end-to-end tests (Playwright / Cypress) for a small app; simulate network errors and accessibility checks.</div>
+    <div class="hint">Hint: Write deterministic tests with mocked network and seeded data; measure coverage.</div>
+    <div class="tags"><span class="tag">Testing</span></div>
+  </li>
+
+  <li class="problem"><div class="head"><div><div class="title">120. Design a portfolio project that stands out</div><div class="meta-small">Difficulty: Strategic · Topics: impact, storytelling</div></div><div class="meta-small">Deliverable: README + demo</div></div>
+    <div class="desc">Design a single project that demonstrates system thinking, performance, reliability, and UX — include architecture diagram, tradeoffs, and measurable metrics. Ship it to a public URL and include a 3-minute walkthrough video.</div>
+    <div class="hint">Hint: Pick a small-but-real problem (e.g., collaborative editor snippet, SSG with CMS, or realtime analytics) and document why it matters to users and teams like Vercel/Netlify/Framer.</div>
+    <div class="tags"><span class="tag">Career</span><span class="tag">Portfolio</span></div>
+  </li>
+
+  </ol>
+
+  <div class="page-break"></div>
+
+  <footer>
+    <div><strong>Training strategy (use this):</strong></div>
+    <ol>
+      <li>Start with problems 1–20: focus on translating English steps into code. Do 5/day.</li>
+      <li>21–55: arrays/DS — target 3/day. Write tests and edge cases.</li>
+      <li>56–95: algorithms & JS patterns — implement, analyze complexity, optimize.</li>
+      <li>96–120: async, DOM, projects — build demo apps and document choices. Deploy and measure.</li>
+    </ol>
+    <div style="margin-top:8px;color:var(--muted)">Pro tip: For each problem — write the problem in your own words, outline the steps in plain English, write pseudocode, then implement. Timebox practice and track mistakes to turn into micro-drills.</div>
+    <div style="margin-top:10px">You're already on the right path. Print this, pick a schedule, and I'll generate practice sessions, solutions, or tests for any subset you choose. — Coach</div>
+  </footer>
+</div>
+</body>
+</html>
